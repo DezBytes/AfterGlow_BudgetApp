@@ -49,7 +49,7 @@ function formatCurrency(value: number): string {
 }
 
 export default function Home() {
-  const [startingBalance, setStartingBalance] = useState(6637);
+  const [startingBalance, setStartingBalance] = useState(0);
   const [transactions, setTransactions] = useState<
     { id: string; date: string; description: string; amount: number; category: string }[]
   >([]);
@@ -279,7 +279,7 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <div className="glass-card glass-card-glow-cyan">
+          <div className="glass-card glass-card-glow-cyan overflow-hidden">
   <div className="p-6">
     <p className="mb-2 text-sm font-medium text-gray-400">
       Current Bank Balance
