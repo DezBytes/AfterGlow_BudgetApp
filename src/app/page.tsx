@@ -166,7 +166,7 @@ export default function Home() {
   };
 
   return (
-    <div className="matrix-money-bg min-h-screen">
+    <div className="financial-flow-bg min-h-screen">
       <div className="mx-auto max-w-4xl px-6 py-12 sm:px-8">
         {/* Header */}
         <header className="mb-12">
