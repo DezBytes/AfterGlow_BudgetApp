@@ -8,12 +8,11 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-  Cell,
-  ReferenceLine,
+  Cell
 } from "recharts";
 
-const STORAGE_KEY = "financial-flow-transactions";
-const BUDGET_STORAGE_KEY = "financial-flow-budget";
+const STORAGE_KEY = "money-matrix-transactions";
+const BUDGET_STORAGE_KEY = "money-matrix-budget";
 
 const CATEGORIES = [
   "Utilities",
@@ -49,15 +48,15 @@ function formatCurrency(value: number): string {
 }
 
 export default function Home() {
-  const [startingBalance, setStartingBalance] = useState(0);
+  const [startingBalance, setStartingBalance] = useState("");
   const [transactions, setTransactions] = useState<
     { id: string; date: string; description: string; amount: number; category: string }[]
   >([]);
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState<string>(CATEGORIES[0]);
-  const [monthlyBudget, setMonthlyBudget] = useState("3200");
-  const [totalSavings, setTotalSavings] = useState("4890");
+  const [monthlyBudget, setMonthlyBudget] = useState("");
+  const [totalSavings, setTotalSavings] = useState("");
   const [hasLoaded, setHasLoaded] = useState(false);
 
   // Load from localStorage on mount
@@ -167,12 +166,12 @@ export default function Home() {
   };
 
   return (
-    <div className="financial-flow-bg min-h-screen">
+    <div className="matrix-money-bg min-h-screen">
       <div className="mx-auto max-w-4xl px-6 py-12 sm:px-8">
         {/* Header */}
         <header className="mb-12">
           <h1 className="title-glow text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Financial Flow
+            Money Matrix
           </h1>
         </header>
 
@@ -362,17 +361,7 @@ export default function Home() {
                     ]}
                     labelFormatter={(label) => label}
                   />
-                  <ReferenceLine
-                    y={Number(monthlyBudget) || 0}
-                    stroke="#ff3b30"
-                    strokeWidth={2}
-                    label={{
-                      value: "Budget Limit",
-                      fill: "#ff3b30",
-                      fontSize: 12,
-                      position: "insideTopRight",
-                    }}
-                  />
+                  
                   <Bar dataKey="total" radius={[4, 4, 0, 0]}>
                     {chartData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.fill} />

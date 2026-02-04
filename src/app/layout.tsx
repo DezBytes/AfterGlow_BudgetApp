@@ -13,8 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Matrix",
-  description: "Your financial afterglow",
+  title: "Money Matrix",
+  description: "Stop guessing where your money is going. Track it in the Matrix.",
+  openGraph: {title: "Money Matrix",
+    description: "Stop guessing where your money goes. Track it in the Matrix.",
+    type: "website",
+    images:  ["/web-app-manifest-512x512.png"],// Add this line!
+  },
   icons: {
     icon: [
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
