@@ -289,7 +289,7 @@ export default function Home() {
         type="number"
         step="0.01"
         value={startingBalance}
-        onChange={(e) => setStartingBalance(Number(e.target.value))}
+        onChange={(e) => setStartingBalance(e.target.value)}
         placeholder="0.00"
         className="ml-0.5 min-w-[4rem] max-w-full bg-transparent outline-none border-b border-transparent focus:border-cyan-400/30 transition-colors"
       />
