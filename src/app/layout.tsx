@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {title: "Money Matrix",
     description: "Stop guessing where your money goes. Track it in the Matrix.",
     type: "website",
-    images:  ["/web-app-manifest-512x512.png"],// Add this line!
+    images: ['https://moneymatrixbudget.netlify.app/web-app-manifest-512x512.png']// Add this line!
   },
   icons: {
     icon: [
