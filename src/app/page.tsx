@@ -328,11 +328,14 @@ export default function Home() {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={chartData}
-                  margin={{ top: 16, right: 50, left: 0, bottom: 0 }}
+                  margin={{ top: 16, right: 50, left: 0, bottom: 40 }}
                 >
-                  <XAxis
+                 <XAxis 
                     dataKey="category"
-                    tick={{ fill: "#94a3b8", fontSize: 12 }}
+                    tick={{ fill: "#94a3b8", fontSize: 10 }} // Shrunk font size slightly for mobile
+                    angle={-45}           // This tilts the words so they fit
+                    textAnchor="end"      // This aligns the tilted words to the bars
+                    height={60}           // This ensures the tilted words aren't cut off
                     tickLine={{ stroke: "rgba(255,255,255,0.1)" }}
                     axisLine={{ stroke: "rgba(255,255,255,0.1)" }}
                   />
