@@ -87,9 +87,10 @@ export default function Home() {
     const budgetStored = localStorage.getItem(BUDGET_STORAGE_KEY);
     if (budgetStored) {
       try {
-        const { monthlyBudget: mb, totalSavings: ts } = JSON.parse(budgetStored);
-        if (mb != null) setMonthlyBudget(String(mb));
-        if (ts != null) setTotalSavings(String(ts));
+        const { monthlyBudget, totalSavings, startingBalance } = JSON.parse(budgetStored);
+        if (monthlyBudget != null) setMonthlyBudget(String(monthlyBudget));
+        if (totalSavings != null) setTotalSavings(String(totalSavings));
+        if (startingBalance != null) setStartingBalance(String(startingBalance));
       } catch {
         // Keep initial if parse fails
       }
@@ -109,10 +110,10 @@ export default function Home() {
     if (hasLoaded) {
       localStorage.setItem(
         BUDGET_STORAGE_KEY,
-        JSON.stringify({ monthlyBudget, totalSavings })
+        JSON.stringify({ monthlyBudget, totalSavings, startingBalance })
       );
     }
-  }, [monthlyBudget, totalSavings, hasLoaded]);
+  }, [monthlyBudget, totalSavings, startingBalance, hasLoaded]);
 
   const totalBalance = Number(startingBalance) - transactions.reduce((sum, tx) => sum + Number(tx.amount), 0);
   const chartData = useMemo(() => {
