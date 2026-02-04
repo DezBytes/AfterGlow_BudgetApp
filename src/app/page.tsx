@@ -16,25 +16,21 @@ const BUDGET_STORAGE_KEY = "money-matrix-budget";
 
 const CATEGORIES = [
   "Utilities",
-  "Insurance",
   "Groceries",
   "Gas",
   "Dining",
   "Entertainment",
   "Shopping",
-  "Unnecessary",
   "Other",
 ] as const;
 
 const CATEGORY_COLORS: Record<string, string> = {
   Utilities: "#a855f7",
-  Insurance: "#7c3aed",
   Groceries: "#00ff88",
   Gas: "#00f5ff",
   Dining: "#ff9500",
   Entertainment: "#e040fb",
   Shopping: "#00bfff",
-  Unnecessary: "#ff69b4",
   Other: "#94a3b8",
 };
 
