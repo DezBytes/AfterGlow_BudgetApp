@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Money Matrix Budget App
 
-## Getting Started
+<!-- Add your logo here -->
+![Money Matrix Logo](public/favicon.svg)
 
-First, run the development server:
+> 📊 Take control of your finances with Money Matrix – your intelligent budget companion designed to simplify financial planning and maximize your money management.
 
+---
+
+## ✨ Features
+
+- 💰 **Smart Budget Tracking** - Easily track income and expenses in real-time
+- 📈 **Visual Analytics** - Beautiful charts and graphs to visualize your spending patterns
+- 🎯 **Goal Setting** - Set financial goals and monitor your progress
+- 📱 **Responsive Design** - Works seamlessly on desktop, tablet, and mobile devices
+- ⚡ **Fast & Intuitive** - Built with Next.js for optimal performance
+- 🔒 **Privacy First** - No login or password required! Your data is saved locally in your browser's storage
+- 🛡️ **Your Data, Your Control** - All information stays on your device
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher)
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/DezBytes/AfterGlow_BudgetApp.git
+cd AfterGlow_BudgetApp
+```
+
+2. **Install dependencies**
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. **Run the development server**
 ```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. **Open in your browser**
+Navigate to [http://localhost:3000](http://localhost:3000) and start managing your budget!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 Usage
 
-## Learn More
+- **Dashboard**: Get a quick overview of your current financial status
+- **Add Transactions**: Log your income and expenses easily
+- **View Reports**: Analyze your spending with detailed insights
+- **Set Budgets**: Create budget categories and track spending limits
+- **No Account Needed**: Start using immediately without any signup!
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is built with:
+- **Framework**: [Next.js](https://nextjs.org) - React framework for production
+- **Language**: TypeScript - Type-safe development
+- **Storage**: Browser LocalStorage - Your data stays with you
+- **Styling**: CSS/Tailwind (configured in `postcss.config.mjs`)
+- **Font**: [Geist](https://vercel.com/font) - Beautiful, optimized typography
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📚 Learn More
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
+- [Next.js GitHub Repository](https://github.com/vercel/next.js)
+
+---
+
+## 🚢 Deployment
+
+The easiest way to deploy is on [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme):
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy with one click!
+
+Check the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request
+
+---
+
+**Made with ❤️ by Money Matrix Team**
