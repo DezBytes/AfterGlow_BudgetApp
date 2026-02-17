@@ -1,6 +1,12 @@
 {
-  "name": "Matrix",
-  "short_name": "Matrix",
+  "name": "Money Matrix",
+  "short_name": "Money Matrix",
+  "description": "Stop guessing where your money goes. Track it in the Matrix.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#8A2BE2",
+  "background_color": "#0D0D0D",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -13,9 +19,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
     }
-  ],
-  "theme_color": "#8A2BE2",
-  "background_color": "#0D0D0D",
-  "display": "standalone"
+  ]
 }
