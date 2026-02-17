@@ -77,12 +77,16 @@ export default function TransactionForm({
           </label>
           <input
             id="amount"
-            type="number"
-            step="0.01"
+            type="text"
+            inputMode="decimal"
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => {
+              const raw = e.target.value.replace(/[^0-9.]/g, "");
+              const parts = raw.split(".");
+              setAmount(parts.length > 2 ? parts[0] + "." + parts.slice(1).join("") : raw);
+            }}
             placeholder="0.00"
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-white placeholder-zinc-500 outline-none transition-colors focus:border-neon-cyan/50 focus:ring-1 focus:ring-neon-cyan/30 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-white placeholder-zinc-500 outline-none transition-colors focus:border-neon-cyan/50 focus:ring-1 focus:ring-neon-cyan/30"
           />
         </div>
         <button

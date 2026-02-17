@@ -91,15 +91,19 @@ export default function TransactionList({
                     <div className="flex items-center gap-2">
                       <span className="text-sm text-zinc-400">$</span>
                       <input
-                        type="number"
-                        step="0.01"
+                        type="text"
+                        inputMode="decimal"
                         value={editAmount}
-                        onChange={(e) => setEditAmount(e.target.value)}
+                        onChange={(e) => {
+                          const raw = e.target.value.replace(/[^0-9.]/g, "");
+                          const parts = raw.split(".");
+                          setEditAmount(parts.length > 2 ? parts[0] + "." + parts.slice(1).join("") : raw);
+                        }}
                         onKeyDown={(e) => {
                           if (e.key === "Enter") saveEdit();
                           if (e.key === "Escape") cancelEdit();
                         }}
-                        className="w-24 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-white outline-none focus:border-neon-cyan/50 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                        className="w-24 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-white outline-none focus:border-neon-cyan/50"
                       />
                     </div>
                     <div className="flex gap-2">

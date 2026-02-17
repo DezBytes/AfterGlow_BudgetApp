@@ -15,12 +15,12 @@ export default function Onboarding({
     {
       done: hasBudget,
       label: "Set your monthly budget",
-      hint: "Enter a dollar amount in the Monthly Budget card above",
+      hint: "Scroll down to the Monthly Budget card and enter a dollar amount",
     },
     {
       done: hasTransactions,
       label: "Add your first transaction",
-      hint: "Type a description and amount above, or import a CSV from your bank",
+      hint: "Use the form below to type a description and amount, or import a CSV from your bank",
     },
   ];
 
@@ -29,35 +29,36 @@ export default function Onboarding({
 
   return (
     <section className="mb-12">
-      <div className="glass-card overflow-hidden border-dashed border-white/20 p-6">
-        <h2 className="mb-1 text-base font-semibold text-white">
-          Get started with Money Matrix
+      <div className="glass-card overflow-hidden border-2 border-dashed border-neon-cyan/30 p-8">
+        <h2 className="mb-2 text-xl font-bold text-white">
+          Welcome to Money Matrix
         </h2>
-        <p className="mb-4 text-sm text-zinc-400">
-          Complete these steps to start tracking your spending.
+        <p className="mb-6 text-sm text-zinc-400">
+          Follow these steps to start tracking your spending. This guide will
+          disappear once you&apos;re set up.
         </p>
-        <ol className="space-y-3">
+        <ol className="space-y-4">
           {steps.map((step, i) => (
             <li key={i} className="flex items-start gap-3">
               <span
-                className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
                   step.done
                     ? "bg-green-500/20 text-green-400"
-                    : "bg-white/10 text-zinc-400"
+                    : "bg-neon-cyan/20 text-neon-cyan"
                 }`}
               >
                 {step.done ? "\u2713" : i + 1}
               </span>
               <div>
                 <p
-                  className={`text-sm font-medium ${
-                    step.done ? "text-zinc-500 line-through" : "text-zinc-200"
+                  className={`text-sm font-semibold ${
+                    step.done ? "text-zinc-500 line-through" : "text-white"
                   }`}
                 >
                   {step.label}
                 </p>
                 {!step.done && (
-                  <p className="text-xs text-zinc-500">{step.hint}</p>
+                  <p className="mt-0.5 text-xs text-zinc-400">{step.hint}</p>
                 )}
               </div>
             </li>

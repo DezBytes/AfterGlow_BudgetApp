@@ -38,19 +38,18 @@ export default function BudgetLimits({
                     </span>
                     <span className="text-zinc-500">$</span>
                     <input
-                      type="number"
-                      step="1"
-                      min="0"
-                      value={categoryBudgets[cat] ?? ""}
+                      type="text"
+                      inputMode="numeric"
+                      value={categoryBudgets[cat] ? String(categoryBudgets[cat]) : ""}
                       onChange={(e) => {
-                        const val = e.target.value;
+                        const raw = e.target.value.replace(/[^0-9]/g, "");
                         setCategoryBudgets((prev) => ({
                           ...prev,
-                          [cat]: val === "" ? 0 : Number(val),
+                          [cat]: raw === "" ? 0 : Number(raw),
                         }));
                       }}
                       placeholder="limit"
-                      className="w-16 rounded border border-white/10 bg-white/5 px-2 py-0.5 text-right text-xs text-white outline-none focus:border-neon-cyan/50 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                      className="w-16 rounded border border-white/10 bg-white/5 px-2 py-0.5 text-right text-xs text-white outline-none focus:border-neon-cyan/50"
                     />
                   </div>
                 </div>

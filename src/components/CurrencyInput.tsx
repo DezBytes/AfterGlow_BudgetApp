@@ -37,9 +37,11 @@ export default function CurrencyInput({
       value={displayValue}
       placeholder={placeholder}
       onChange={(e) => {
-        // Strip everything except digits, dots, and minus
-        const raw = e.target.value.replace(/[^0-9.\-]/g, "");
-        onChange(raw);
+        const raw = e.target.value.replace(/[^0-9.]/g, "");
+        // Prevent multiple decimal points
+        const parts = raw.split(".");
+        const sanitized = parts.length > 2 ? parts[0] + "." + parts.slice(1).join("") : raw;
+        onChange(sanitized);
       }}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}

@@ -36,11 +36,79 @@ body {
 
 /* Subtle gradient overlay for depth */
 .financial-flow-bg {
-  background: 
+  position: relative;
+  background: var(--midnight-purple);
+}
+
+.financial-flow-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
     radial-gradient(ellipse 80% 50% at 50% -20%, rgba(168, 85, 247, 0.12), transparent),
     radial-gradient(ellipse 60% 40% at 100% 50%, rgba(0, 245, 255, 0.06), transparent),
-    radial-gradient(ellipse 60% 40% at 0% 80%, rgba(168, 85, 247, 0.08), transparent),
-    var(--midnight-purple);
+    radial-gradient(ellipse 60% 40% at 0% 80%, rgba(168, 85, 247, 0.08), transparent);
+}
+
+.financial-flow-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating ambient blobs */
+.ambient-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: rgba(0, 245, 255, 0.18);
+  top: 10%;
+  left: 10%;
+  animation: float1 25s ease-in-out infinite alternate;
+}
+
+.blob-2 {
+  width: 600px;
+  height: 600px;
+  background: rgba(168, 85, 247, 0.2);
+  bottom: 5%;
+  right: 5%;
+  animation: float2 30s ease-in-out infinite alternate;
+}
+
+.blob-3 {
+  width: 400px;
+  height: 400px;
+  background: rgba(0, 245, 255, 0.14);
+  top: 50%;
+  right: 25%;
+  animation: float3 20s ease-in-out infinite alternate;
+}
+
+@keyframes float1 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(60px, -40px); }
+  100% { transform: translate(-30px, 50px); }
+}
+
+@keyframes float2 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-50px, 30px); }
+  100% { transform: translate(40px, -60px); }
+}
+
+@keyframes float3 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(40px, 50px); }
+  100% { transform: translate(-60px, -20px); }
 }
 
 /* Glassmorphism card base */

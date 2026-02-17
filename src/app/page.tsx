@@ -52,15 +52,22 @@ export default function Home() {
             description: string;
             amount: number;
             category?: string;
-          }) => ({
-            ...tx,
-            date: tx.date != null ? tx.date : "",
-            category:
+          }) => {
+            let category =
               tx.category &&
               CATEGORIES.includes(tx.category as (typeof CATEGORIES)[number])
                 ? tx.category
-                : "Other",
-          })
+                : "Other";
+            // Migrate: deposits categorized as "Other" should be "Income"
+            if (tx.amount < 0 && category === "Other") {
+              category = "Income";
+            }
+            return {
+              ...tx,
+              date: tx.date != null ? tx.date : "",
+              category,
+            };
+          }
         );
         setTransactions(normalized);
       } catch {
@@ -268,13 +275,18 @@ export default function Home() {
       byCategory[cat] = 0;
     }
     for (const tx of filteredTransactions) {
-      if (tx.amount <= 0) continue; // Skip deposits/income
       const cat =
         tx.category &&
         CATEGORIES.includes(tx.category as (typeof CATEGORIES)[number])
           ? tx.category
           : "Other";
-      byCategory[cat] = (byCategory[cat] ?? 0) + tx.amount;
+      if (cat === "Income") {
+        // Deposits are negative internally, use absolute value for chart
+        byCategory[cat] = (byCategory[cat] ?? 0) + Math.abs(tx.amount);
+      } else {
+        if (tx.amount <= 0) continue; // Skip non-income deposits
+        byCategory[cat] = (byCategory[cat] ?? 0) + tx.amount;
+      }
     }
     const totalSpending = Object.values(byCategory).reduce((a, b) => a + b, 0);
     return CATEGORIES.map((cat) => ({
@@ -608,6 +620,9 @@ export default function Home() {
 
   return (
     <div className="financial-flow-bg min-h-screen">
+      <div className="ambient-blob blob-1" />
+      <div className="ambient-blob blob-2" />
+      <div className="ambient-blob blob-3" />
       <div className="mx-auto max-w-4xl px-6 py-12 sm:px-8">
         <header className="mb-12">
           <h1 className="title-glow text-4xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -615,15 +630,15 @@ export default function Home() {
           </h1>
         </header>
 
+        <Onboarding
+          hasTransactions={transactions.length > 0}
+          hasBudget={Number(monthlyBudget) > 0}
+        />
+
         <TransactionForm
           onSubmit={handleAddTransaction}
           onCSVImport={handleCSVImport}
           importMessage={importMessage}
-        />
-
-        <Onboarding
-          hasTransactions={transactions.length > 0}
-          hasBudget={Number(monthlyBudget) > 0}
         />
 
         <SummaryCards

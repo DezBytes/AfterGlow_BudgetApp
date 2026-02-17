@@ -68,15 +68,16 @@ export default function SpendingChart({ chartData }: SpendingChartProps) {
                   color: "#e8e4f0",
                 }}
                 labelStyle={{ color: "#94a3b8" }}
+                itemStyle={{ color: "#e8e4f0" }}
                 formatter={(
                   value: number | undefined,
                   _name: string | undefined,
-                  entry: { payload?: { pct?: number } }
+                  entry: { payload?: { pct?: number; category?: string } }
                 ) => [
                   `${formatCurrency(value ?? 0)} (${
                     entry.payload?.pct ?? 0
                   }%)`,
-                  "Spent",
+                  entry.payload?.category === "Income" ? "Earned" : "Spent",
                 ]}
                 labelFormatter={(label) => label}
               />
